@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    `maven-publish`
 }
 
 android {
@@ -41,6 +42,13 @@ android {
         // https://developer.android.com/jetpack/androidx/releases/compose-kotlin
         kotlinCompilerExtensionVersion = "1.5.10"
     }
+    publishing {
+        multipleVariants("production") {
+            includeBuildTypeValues("release")
+            withJavadocJar()
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
@@ -56,4 +64,36 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("production") {
+            groupId = "com.ivangarzab"
+            artifactId = "composable.webview"
+            version = "0.1"
+
+            afterEvaluate {
+                from(components["production"])
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "localRepo"
+            url = uri("${project.buildDir}/repo")
+        }
+    }
+}
+
+tasks.register<Zip>("zipRepo") {
+    group = "publishing"
+    description = "A simple task that zip the publication."
+    val publishTask = tasks.named(
+        "publishProductionPublicationToLocalRepoRepository",
+        PublishToMavenRepository::class.java)
+    from(publishTask.map { it.repository.url })
+    into("myLibrary")
+    archiveFileName.set("myLibrary.zip")
 }
