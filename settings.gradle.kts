@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "composable-webview"
 include(":app")
+include(":webview")
