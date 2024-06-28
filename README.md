@@ -10,3 +10,7 @@ I decided to take their advice and fork that piece of the library in order to co
 as well as making it public so that other people may leverage it too.
 
 For more information, please check out their [official documentation](https://google.github.io/accompanist/web/).
+
+## Upcoming features:
+- [ ] Pull to refresh ♻️
+- [ ] Website loading spinner ↻

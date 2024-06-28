@@ -44,14 +44,6 @@ android {
     }
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
-
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -72,7 +64,7 @@ publishing {
         register<MavenPublication>("production") {
             groupId = "com.github.ivangarzab"
             artifactId = "composable-webview"
-            version = "0.1"
+            version = "0.3"
 
             afterEvaluate {
                 from(components["production"])
@@ -91,9 +83,11 @@ publishing {
 tasks.register<Zip>("zipRepo") {
     group = "publishing"
     description = "A simple task that zip the publication."
+
     val publishTask = tasks.named(
         "publishProductionPublicationToLocalRepoRepository",
-        PublishToMavenRepository::class.java)
+        PublishToMavenRepository::class.java
+    )
     from(publishTask.map { it.repository.url })
     into("myLibrary")
     archiveFileName.set("myLibrary.zip")

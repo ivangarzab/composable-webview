@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.ivangarzab</groupId>
     <artifactId>composable-webview</artifactId>
-    <version>1.0</version>
+    <version>0.3</version>
     <packaging>pom</packaging>
     <description>First version release</description>
 </project>
