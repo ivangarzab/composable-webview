@@ -62,7 +62,7 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("production") {
-            groupId = "com.ivangarzab"
+            groupId = "com.github.ivangarzab"
             artifactId = "composable-webview"
             version = "0.1"
 
