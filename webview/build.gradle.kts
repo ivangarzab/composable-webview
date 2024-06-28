@@ -63,7 +63,7 @@ publishing {
     publications {
         register<MavenPublication>("production") {
             groupId = "com.ivangarzab"
-            artifactId = "composable.webview"
+            artifactId = "composable-webview"
             version = "0.1"
 
             afterEvaluate {
