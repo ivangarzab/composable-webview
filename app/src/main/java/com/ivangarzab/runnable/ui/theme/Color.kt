@@ -1,4 +1,4 @@
-package com.ivangarzab.webview.ui.theme
+package com.ivangarzab.runnable.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

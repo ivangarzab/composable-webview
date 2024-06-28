@@ -1,4 +1,4 @@
-package com.ivangarzab.webview.ui.theme
+package com.ivangarzab.runnable.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
