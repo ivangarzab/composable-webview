@@ -1,0 +1,8 @@
+# Configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+#  - FILE="-Dfile=com-atifqamar-customtoast.aar"
+  - mvn install:install-file $FILE -DgroupId=com.ivangarzab -DartifactId=composable.webview -Dversion=0.1 -Dpackaging=aar -DgeneratePom=true
