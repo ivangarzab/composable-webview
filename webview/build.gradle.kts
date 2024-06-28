@@ -1,15 +1,3 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()
-    }
-    dependencies {
-        classpath(libs.android.gradle.plugin)
-        classpath(libs.kotlin.plugin)
-    }
-}
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -47,19 +35,20 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        // Check the following link to make sure this extension is using the latest version. This
-        // version also needs to match up with what we have installed for the kotlin version as
-        // listed on the link below.
-        // https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-        kotlinCompilerExtensionVersion = "1.5.10"
-    }
     publishing {
         multipleVariants("production") {
             includeBuildTypeValues("release")
             withJavadocJar()
             withSourcesJar()
         }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
@@ -81,8 +70,8 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("production") {
-            groupId = "com.ivangarzab"
-            artifactId = "composable.webview"
+            groupId = "com.github.ivangarzab"
+            artifactId = "composable-webview"
             version = "0.1"
 
             afterEvaluate {
