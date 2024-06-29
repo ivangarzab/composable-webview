@@ -11,8 +11,8 @@ as well as making it public so that other people may leverage it too.
 
 For more information, please check out their [official documentation](https://google.github.io/accompanist/web/).
 
-## As Seen On
-_TBD..._
+### As Seen On
+_Link to original article coming soon!_
 
 ## Setup
 Import this library as a Gradle dependency in two simple steps:
@@ -106,4 +106,4 @@ WebView(
 ## License
 The `composable-webview` library is distributed under the terms and conditions of the Apache License (Version 2).  
 
-Please refer to the [License](https://github.com/ivangarzab/composable-webview/blob/dev/LICENSE) page for more information.
+Please refer to the [License](https://github.com/ivangarzab/composable-webview/blob/master/LICENSE) page for more information.
