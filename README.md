@@ -54,8 +54,8 @@ dependencies {
 
 ## Basic Usage
 The simplest way to implement this wrapper is two use two main APIs from this library: 
-- The `WebView` Composable
-- The `rememberWebViewState(url: String)` function to take care of its state
+- The [`WebView`](https://github.com/ivangarzab/composable-webview/blob/master/webview/src/main/java/com/ivangarzab/webview/ui/WebView.kt) Composable
+- The [`rememberWebViewState(url: String)`](https://github.com/ivangarzab/composable-webview/blob/master/webview/src/main/java/com/ivangarzab/webview/WebViewState.kt) function to take care of its state
 
 ``` kotlin
 // Composable function
@@ -63,9 +63,45 @@ val state = rememberWebViewState("https://example.com")
 WebView(state = state)
 ```
 
+### Enabling JavaScript
+JavaScript is disabled by default in the `WebView` implementation.
+
+In order to enable this feature -- or any other settings -- you can do so inside the `onCreated` callback:
+
+``` kotlin
+WebView(
+    state = state
+    onCreated = { it.settings.javaScriptEnabled = true }
+)
+```
+
+### Capturing Back Actions
+Back Actions -- such as back button presses or back gestures --  are captured by default in the `WebView` implementation.
+
+This behavior can be disabled via a parameter in the Composable:
+
+``` kotlin
+WebView(
+    ...
+    captureBackPresses = false
+)
+```
+
+### Subclassing a `WebView` Implementation
+Subclassing of the default `WebView` implementation is possible through the `factory` Composable:
+
+``` kotlin
+WebView(
+    ...
+    factory = { context -> CustomWebView(context) }
+)
+```
+
+
 ## Upcoming Features
 - [ ] Pull to refresh ♻️
 - [ ] Website loading spinner ↻
+- [ ] Distribution through the Maven package 🚀
 
 ## License
 The `composable-webview` library is distributed under the terms and conditions of the Apache License (Version 2).  
