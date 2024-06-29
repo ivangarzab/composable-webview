@@ -97,13 +97,27 @@ WebView(
 )
 ```
 
+## Sample app
+Make sure to check out the sample app in [`MainActivity`](https://github.com/ivangarzab/composable-webview/blob/feature/expand-readme/app/src/main/java/com/ivangarzab/runnable/MainActivity.kt) inside the `:app` module for a more
+complete example on how to use this library.
 
 ## Upcoming Features
 - [ ] Pull to refresh ♻️
 - [ ] Website loading spinner ↻
 - [ ] Distribution through the Maven package 🚀
 
+------------------------------------
+
+## Let's Contribute! 
+See an improvement that you'd like to see in this library?  Or an impeding bug that needs to be squashed?
+
+Feel free to drop a _Bug Report_ 🐛 or a _Feature Request_ 📈 ticket for consideration!
+
+Wanna get something you yourself? 🔥
+
+Make sure to Fork the library, and submit a PR with the pre-defined guidelines!
+
 ## License
 The `composable-webview` library is distributed under the terms and conditions of the Apache License (Version 2).  
 
-Please refer to the [License](https://github.com/ivangarzab/composable-webview/blob/master/LICENSE) page for more information.
+Please refer to the [LICENSE](https://github.com/ivangarzab/composable-webview/blob/master/LICENSE) page for more information.
