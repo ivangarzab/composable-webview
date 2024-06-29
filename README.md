@@ -11,6 +11,6 @@ as well as making it public so that other people may leverage it too.
 
 For more information, please check out their [official documentation](https://google.github.io/accompanist/web/).
 
-## Upcoming features:
+## Upcoming Features
 - [ ] Pull to refresh ♻️
 - [ ] Website loading spinner ↻
