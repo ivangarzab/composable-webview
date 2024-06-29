@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.ivangarzab.webview"
+    namespace = "com.ivangarzab.webview.sample"
     compileSdk = 34
 
     defaultConfig {
