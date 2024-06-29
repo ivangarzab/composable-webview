@@ -97,7 +97,7 @@ WebView(
 )
 ```
 
-## Sample app
+## Sample Application
 Make sure to check out the sample app in [`MainActivity`](https://github.com/ivangarzab/composable-webview/blob/feature/expand-readme/app/src/main/java/com/ivangarzab/runnable/MainActivity.kt) inside the `:app` module for a more
 complete example on how to use this library.
 
@@ -108,14 +108,14 @@ complete example on how to use this library.
 
 ------------------------------------
 
-## Let's Contribute! 
+## Let's Work Together! 
 See an improvement that you'd like to see in this library?  Or an impeding bug that needs to be squashed?
 
-Feel free to drop a _Bug Report_ 🐛 or a _Feature Request_ 📈 ticket for consideration!
+Feel free to drop a *Bug Report* 🐛 or a *Feature Request* 📈 ticket for consideration!
 
 Wanna get something you yourself? 🔥
 
-Make sure to Fork the library, and submit a PR with the pre-defined guidelines!
+Make sure to _fork_ the library, and submit a *Pull Request* with the pre-defined guidelines!
 
 ## License
 The `composable-webview` library is distributed under the terms and conditions of the Apache License (Version 2).  
