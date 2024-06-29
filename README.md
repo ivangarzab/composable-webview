@@ -3,7 +3,6 @@
 
 ![banner-image](./assets/banner.png)
 
-# Composable WebView
 A WebView implementation in Compose as forked by [Google's Accompanist](https://github.com/google/accompanist/) repository.
 
 With the Google's Accompanist repository deprecating it's [WebView implementation](https://github.com/google/accompanist/tree/main/web) starting on August 2023,
