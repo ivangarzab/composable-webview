@@ -11,6 +11,63 @@ as well as making it public so that other people may leverage it too.
 
 For more information, please check out their [official documentation](https://google.github.io/accompanist/web/).
 
+## As Seen On
+_TBD..._
+
+## Setup
+Import this library as a Gradle dependency in two simple steps:
+1.  Add Jitpack as a repository inside your Gradle build file
+
+``` groovy
+// build.gradle
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+```
+
+``` kotlin
+// build.gradle.kts
+repositories {
+    ...    
+    maven { url = uri("https://jitpack.io") }
+}
+```
+
+2.  Bring in dependency inside your module-level Gradle build file
+
+``` groovy
+// build.gradle
+dependencies {
+    ...
+    implementation "com.ivangarzab:composable-webview:<latest_version>"
+}
+```
+
+``` kotlin
+// build.gradle.kts
+dependencies {
+    ...
+    implementation("com.ivangarzab:composable-webview:<latest_version>")
+}
+```
+
+## Basic Usage
+The simplest way to implement this wrapper is two use two main APIs from this library: 
+- The `WebView` Composable
+- The `rememberWebViewState(url: String)` function to take care of its state
+
+``` kotlin
+// Composable function
+val state = rememberWebViewState("https://example.com")
+WebView(state = state)
+```
+
 ## Upcoming Features
 - [ ] Pull to refresh ♻️
 - [ ] Website loading spinner ↻
+
+## License
+The `composable-webview` library is distributed under the terms and conditions of the Apache License (Version 2).  
+
+Please refer to the [License](https://github.com/ivangarzab/composable-webview/blob/dev/LICENSE) page for more information.
