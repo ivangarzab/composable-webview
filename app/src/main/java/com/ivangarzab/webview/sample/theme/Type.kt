@@ -1,4 +1,4 @@
-package com.ivangarzab.runnable.ui.theme
+package com.ivangarzab.webview.sample.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

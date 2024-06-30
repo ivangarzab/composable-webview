@@ -1,4 +1,4 @@
-package com.ivangarzab.runnable
+package com.ivangarzab.webview.sample
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,12 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.ivangarzab.runnable.ui.theme.MyTheme
 import com.ivangarzab.webview.rememberWebViewState
+import com.ivangarzab.webview.sample.theme.MyTheme
 import com.ivangarzab.webview.ui.WebView
 
 class MainActivity : ComponentActivity() {
@@ -45,20 +43,4 @@ fun WebViewScreen(
         state = state,
         onCreated = { it.settings.javaScriptEnabled = true },
     )
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyTheme {
-        Greeting("Android")
-    }
 }
