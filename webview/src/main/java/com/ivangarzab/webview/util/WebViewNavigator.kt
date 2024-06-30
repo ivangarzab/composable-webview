@@ -1,4 +1,4 @@
-package com.ivangarzab.webview
+package com.ivangarzab.webview.util
 
 import android.webkit.WebView
 import androidx.compose.runtime.Composable

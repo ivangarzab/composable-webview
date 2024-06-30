@@ -1,10 +1,13 @@
-package com.ivangarzab.webview
+package com.ivangarzab.webview.util
 
 import android.graphics.Bitmap
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import com.ivangarzab.webview.data.LoadingState
+import com.ivangarzab.webview.data.WebViewError
+import com.ivangarzab.webview.data.WebViewState
 
 /**
  * AccompanistWebViewClient

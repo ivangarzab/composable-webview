@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.ivangarzab.webview.rememberWebViewState
+import com.ivangarzab.webview.data.rememberWebViewState
 import com.ivangarzab.webview.sample.theme.MyTheme
 import com.ivangarzab.webview.ui.WebView
 

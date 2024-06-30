@@ -1,4 +1,4 @@
-package com.ivangarzab.webview
+package com.ivangarzab.webview.data
 
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest

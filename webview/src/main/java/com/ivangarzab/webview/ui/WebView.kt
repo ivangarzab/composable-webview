@@ -12,12 +12,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import com.ivangarzab.webview.AccompanistWebChromeClient
-import com.ivangarzab.webview.AccompanistWebViewClient
-import com.ivangarzab.webview.WebContent
-import com.ivangarzab.webview.WebViewNavigator
-import com.ivangarzab.webview.WebViewState
-import com.ivangarzab.webview.rememberWebViewNavigator
+import com.ivangarzab.webview.util.AccompanistWebChromeClient
+import com.ivangarzab.webview.util.AccompanistWebViewClient
+import com.ivangarzab.webview.data.WebContent
+import com.ivangarzab.webview.util.WebViewNavigator
+import com.ivangarzab.webview.data.WebViewState
+import com.ivangarzab.webview.util.rememberWebViewNavigator
 
 
 /**

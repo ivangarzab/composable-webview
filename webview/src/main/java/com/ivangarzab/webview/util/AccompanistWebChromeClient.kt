@@ -1,8 +1,10 @@
-package com.ivangarzab.webview
+package com.ivangarzab.webview.util
 
 import android.graphics.Bitmap
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import com.ivangarzab.webview.data.LoadingState
+import com.ivangarzab.webview.data.WebViewState
 
 /**
  * AccompanistWebChromeClient

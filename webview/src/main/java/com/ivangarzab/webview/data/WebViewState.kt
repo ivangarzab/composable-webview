@@ -1,4 +1,4 @@
-package com.ivangarzab.webview
+package com.ivangarzab.webview.data
 
 import android.graphics.Bitmap
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.ivangarzab.webview
+package com.ivangarzab.webview.data
 
 /**
  * Sealed class for constraining possible loading states.

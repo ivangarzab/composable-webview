@@ -1,4 +1,4 @@
-package com.ivangarzab.webview
+package com.ivangarzab.webview.data
 
 sealed class WebContent {
     data class Url(
