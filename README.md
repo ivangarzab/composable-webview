@@ -55,7 +55,7 @@ dependencies {
 ## Basic Usage
 The simplest way to implement this wrapper is two use two main APIs from this library: 
 - The [`WebView`](https://github.com/ivangarzab/composable-webview/blob/master/webview/src/main/java/com/ivangarzab/webview/ui/WebView.kt) Composable
-- The [`rememberWebViewState(url: String)`](https://github.com/ivangarzab/composable-webview/blob/master/webview/src/main/java/com/ivangarzab/webview/WebViewState.kt) function to take care of its state
+- The [`rememberWebViewState(url: String)`](https://github.com/ivangarzab/composable-webview/blob/master/webview/src/main/java/com/ivangarzab/webview/data/WebViewState.kt) function to take care of its state
 
 ``` kotlin
 // Composable function
@@ -98,7 +98,7 @@ WebView(
 ```
 
 ## Sample Application
-Make sure to check out the sample app in [`MainActivity`](https://github.com/ivangarzab/composable-webview/blob/feature/expand-readme/app/src/main/java/com/ivangarzab/runnable/MainActivity.kt) inside the `:app` module for a more
+Make sure to check out the sample app in [`MainActivity`](https://github.com/ivangarzab/composable-webview/blob/feature/expand-readme/app/src/main/java/com/ivangarzab/webview/sample/MainActivity.kt) inside the `:sample` module for a more
 complete example on how to use this library.
 
 ## Upcoming Features
