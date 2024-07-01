@@ -98,7 +98,7 @@ WebView(
 ```
 
 ## Sample Application
-Make sure to check out the sample app in [`MainActivity`](https://github.com/ivangarzab/composable-webview/blob/feature/expand-readme/app/src/main/java/com/ivangarzab/webview/sample/MainActivity.kt) inside the `:sample` module for a more
+Make sure to check out the sample app in [`MainActivity`](https://github.com/ivangarzab/composable-webview/blob/master/sample/src/main/java/com/ivangarzab/webview/sample/MainActivity.kt) inside the `:sample` module for a more
 complete example on how to use this library.
 
 ## Upcoming Features
