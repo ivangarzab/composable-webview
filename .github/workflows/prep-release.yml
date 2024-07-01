@@ -69,3 +69,14 @@ jobs:
             - Second Change
           draft: false
           prerelease: false
+
+  jitpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome message
+        run: echo "Triggering jitpack master-SNAPSHOT for further use"
+      - name: Request master-SNAPSHOT from JitPack
+        if: ${{ !input.dry_run }}
+        run: |
+          # timeout in 30 seconds to avoid waiting for build
+          curl -s -m 30 https://jitpack.io/com/ivangarzab/composable-webview/master-SNAPSHOT/ || true
