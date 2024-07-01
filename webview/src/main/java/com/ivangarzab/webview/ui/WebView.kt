@@ -43,7 +43,7 @@ import com.ivangarzab.webview.util.rememberWebViewNavigator
  * @param client Provides access to WebViewClient via subclassing
  * @param chromeClient Provides access to WebChromeClient via subclassing
  * @param factory An optional WebView factory for using a custom subclass of WebView
- * @sample com.google.accompanist.sample.webview.BasicWebViewSample
+ * @sample com.ivangarzab.webview.sample.MainActivity
  */
 @Composable
 fun WebView(
