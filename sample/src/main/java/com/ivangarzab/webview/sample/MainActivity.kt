@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,14 +14,12 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.ivangarzab.webview.data.LoadingState
 import com.ivangarzab.webview.data.rememberWebViewState
 import com.ivangarzab.webview.sample.theme.MyTheme
 import com.ivangarzab.webview.ui.WebView
-import com.ivangarzab.webview.util.AccompanistWebChromeClient
-import com.ivangarzab.webview.util.AccompanistWebViewClient
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
                     WebViewScreen(
                         modifier = Modifier.padding(innerPadding),
-                        url = "https://medium.ivangarzab.com"
+                        url = DEFAULT_URL
                     )
                 }
             }
@@ -52,16 +50,10 @@ fun WebViewScreen(
 
     val loadingState = state.loadingState
 
-    val webClient = remember { object : AccompanistWebViewClient() { } }
-
-    val chromeClient = remember { object : AccompanistWebChromeClient() { } }
-
     WebView(
         modifier = modifier,
         state = state,
-        onCreated = { it.settings.javaScriptEnabled = true },
-        client = webClient,
-        chromeClient = chromeClient
+//        onCreated = { it.settings.javaScriptEnabled = true },
     )
 
     if (loadingState is LoadingState.Loading) {
@@ -76,11 +68,17 @@ fun WebViewScreen(
     }
 }
 
+@Preview
 @Composable
-fun WebViewScreenToolbar(
-    modifier: Modifier = Modifier
-) {
-    Row {
-
+fun WebViewScreenPreview() {
+    MyTheme {
+        Box {
+            WebViewScreen(
+                modifier = Modifier.fillMaxSize(),
+                url = DEFAULT_URL
+            )
+        }
     }
 }
+
+val DEFAULT_URL = "https://medium.ivangarzab.com"
