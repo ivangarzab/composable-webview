@@ -18,7 +18,7 @@ jobs:
       contents: write
     steps:
       - name: Authenticate email
-        run: git config user.email "ivangb6@gmail.com"
+        run: git config user.email "ivangarzab@github.com"
       - name: Authenticate name
         run: git config user.name "Ivan Garza Bermea"
 
