@@ -16,8 +16,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 
 /**
- * A state holder to hold the state for the WebView. In most cases this will be remembered
- * using the rememberWebViewState(uri) function.
+ * A state holder to hold the state for the [WebView]. In most cases this will be remembered
+ * using the [rememberWebViewState] function.
  */
 @Stable
 class WebViewState(webContent: WebContent) {
@@ -25,19 +25,19 @@ class WebViewState(webContent: WebContent) {
         internal set
 
     /**
-     *  The content being loaded by the WebView
+     *  The content being loaded by the [WebView]
      */
     var content: WebContent by mutableStateOf(webContent)
 
     /**
-     * Whether the WebView is currently [LoadingState.Loading] data in its main frame (along with
+     * Whether the [WebView] is currently [LoadingState.Loading] data in its main frame (along with
      * progress) or the data loading has [LoadingState.Finished]. See [LoadingState]
      */
     var loadingState: LoadingState by mutableStateOf(LoadingState.Initializing)
         internal set
 
     /**
-     * Whether the webview is currently loading data in its main frame
+     * Whether the [WebView] is currently loading data in its main frame
      */
     val isLoading: Boolean
         get() = loadingState !is LoadingState.Finished
@@ -57,14 +57,13 @@ class WebViewState(webContent: WebContent) {
     /**
      * A list for errors captured in the last load. Reset when a new page is loaded.
      * Errors could be from any resource (iframe, image, etc.), not just for the main page.
-     * For more fine grained control use the OnError callback of the WebView.
+     * For more fine grained control use the OnError callback of the [WebView].
      */
     val errorsForCurrentRequest: SnapshotStateList<WebViewError> = mutableStateListOf()
 
     /**
      * The saved view state from when the view was destroyed last. To restore state,
      * use the navigator and only call loadUrl if the bundle is null.
-     * See WebViewSaveStateSample.
      */
     var viewState: Bundle? = null
         internal set
@@ -75,7 +74,7 @@ class WebViewState(webContent: WebContent) {
 }
 
 /**
- * Creates a WebView state that is remembered across Compositions.
+ * Creates a [WebView] state that is remembered across Compositions.
  *
  * @param url The url to load in the WebView
  * @param additionalHttpHeaders Optional, additional HTTP headers that are passed to [WebView.loadUrl].
@@ -103,7 +102,7 @@ fun rememberWebViewState(
     }
 
 /**
- * Creates a WebView state that is remembered across Compositions.
+ * Creates a [WebView] state that is remembered across Compositions.
  *
  * @param data The uri to load in the WebView
  */
@@ -124,7 +123,7 @@ fun rememberWebViewStateWithHTMLData(
     }
 
 /**
- * Creates a WebView state that is remembered across Compositions.
+ * Creates a [WebView] state that is remembered across Compositions.
  *
  * @param url The url to load in the WebView
  * @param postData The data to be posted to the WebView with the url
@@ -151,13 +150,11 @@ fun rememberWebViewState(
     }
 
 /**
- * Creates a WebView state that is remembered across Compositions and saved
+ * Creates a [WebView] state that is remembered across Compositions and saved
  * across activity recreation.
- * When using saved state, you cannot change the URL via recomposition. The only way to load
- * a URL is via a WebViewNavigator.
  *
- * @param data The uri to load in the WebView
- * @sample com.google.accompanist.sample.webview.WebViewSaveStateSample
+ * When using saved state, you cannot change the URL via recomposition. The only way to load
+ * a URL is via a [com.ivangarzab.webview.util.WebViewNavigator].
  */
 @Composable
 fun rememberSaveableWebViewState(): WebViewState =

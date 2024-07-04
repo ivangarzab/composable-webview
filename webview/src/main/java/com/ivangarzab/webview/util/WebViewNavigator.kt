@@ -15,13 +15,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * Allows control over the navigation of a WebView from outside the composable. E.g. for performing
- * a back navigation in response to the user clicking the "up" button in a TopAppBar.
+ * Allows control over the navigation of a [WebView] from outside the composable.
+ * E.g., for performing a back navigation in response to the user clicking the "up" button in a TopAppBar.
  *
  * @see [rememberWebViewNavigator]
  */
 @Stable
-public class WebViewNavigator(private val coroutineScope: CoroutineScope) {
+class WebViewNavigator(private val coroutineScope: CoroutineScope) {
     private sealed interface NavigationEvent {
         object Back : NavigationEvent
         object Forward : NavigationEvent
@@ -95,18 +95,18 @@ public class WebViewNavigator(private val coroutineScope: CoroutineScope) {
     }
 
     /**
-     * True when the web view is able to navigate backwards, false otherwise.
+     * True when the [WebView] is able to navigate backwards, false otherwise.
      */
-    public var canGoBack: Boolean by mutableStateOf(false)
+    var canGoBack: Boolean by mutableStateOf(false)
         internal set
 
     /**
-     * True when the web view is able to navigate forwards, false otherwise.
+     * True when the [WebView] is able to navigate forwards, false otherwise.
      */
-    public var canGoForward: Boolean by mutableStateOf(false)
+    var canGoForward: Boolean by mutableStateOf(false)
         internal set
 
-    public fun loadUrl(url: String, additionalHttpHeaders: Map<String, String> = emptyMap()) {
+    fun loadUrl(url: String, additionalHttpHeaders: Map<String, String> = emptyMap()) {
         coroutineScope.launch {
             navigationEvents.emit(
                 NavigationEvent.LoadUrl(
@@ -117,7 +117,7 @@ public class WebViewNavigator(private val coroutineScope: CoroutineScope) {
         }
     }
 
-    public fun loadHtml(
+    fun loadHtml(
         html: String,
         baseUrl: String? = null,
         mimeType: String? = null,
@@ -137,7 +137,7 @@ public class WebViewNavigator(private val coroutineScope: CoroutineScope) {
         }
     }
 
-    public fun postUrl(
+    fun postUrl(
         url: String,
         postData: ByteArray
     ) {
@@ -152,30 +152,30 @@ public class WebViewNavigator(private val coroutineScope: CoroutineScope) {
     }
 
     /**
-     * Navigates the webview back to the previous page.
+     * Navigates the [WebView] back to the previous page.
      */
-    public fun navigateBack() {
+    fun navigateBack() {
         coroutineScope.launch { navigationEvents.emit(NavigationEvent.Back) }
     }
 
     /**
-     * Navigates the webview forward after going back from a page.
+     * Navigates the [WebView] forward after going back from a page.
      */
-    public fun navigateForward() {
+    fun navigateForward() {
         coroutineScope.launch { navigationEvents.emit(NavigationEvent.Forward) }
     }
 
     /**
-     * Reloads the current page in the webview.
+     * Reloads the current page in the [WebView].
      */
-    public fun reload() {
+    fun reload() {
         coroutineScope.launch { navigationEvents.emit(NavigationEvent.Reload) }
     }
 
     /**
      * Stops the current page load (if one is loading).
      */
-    public fun stopLoading() {
+    fun stopLoading() {
         coroutineScope.launch { navigationEvents.emit(NavigationEvent.StopLoading) }
     }
 }
@@ -185,6 +185,6 @@ public class WebViewNavigator(private val coroutineScope: CoroutineScope) {
  * override.
  */
 @Composable
-public fun rememberWebViewNavigator(
+fun rememberWebViewNavigator(
     coroutineScope: CoroutineScope = rememberCoroutineScope()
 ): WebViewNavigator = remember(coroutineScope) { WebViewNavigator(coroutineScope) }

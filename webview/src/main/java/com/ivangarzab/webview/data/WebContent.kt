@@ -37,7 +37,6 @@ sealed class WebContent {
         }
     }
 
-    @Deprecated("Use state.lastLoadedUrl instead")
     fun getCurrentUrl(): String? {
         return when (this) {
             is Url -> url

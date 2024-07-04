@@ -7,9 +7,8 @@ import com.ivangarzab.webview.data.LoadingState
 import com.ivangarzab.webview.data.WebViewState
 
 /**
- * AccompanistWebChromeClient
- *
- * A parent class implementation of WebChromeClient that can be subclassed to add custom behaviour.
+ * A parent class implementation of [WebChromeClient] that can be subclassed
+ * to add custom behaviour.
  *
  * As Accompanist Web needs to set its own web client to function, it provides this intermediary
  * class that can be overriden if further custom behaviour is required.
