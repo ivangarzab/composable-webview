@@ -1,3 +1,19 @@
+/*
+ * Copyright 2024 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.ivangarzab.webview.ui
 
 import android.content.Context
@@ -12,16 +28,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import com.ivangarzab.webview.AccompanistWebChromeClient
-import com.ivangarzab.webview.AccompanistWebViewClient
-import com.ivangarzab.webview.WebContent
-import com.ivangarzab.webview.WebViewNavigator
-import com.ivangarzab.webview.WebViewState
-import com.ivangarzab.webview.rememberWebViewNavigator
+import com.ivangarzab.webview.util.AccompanistWebChromeClient
+import com.ivangarzab.webview.util.AccompanistWebViewClient
+import com.ivangarzab.webview.data.WebContent
+import com.ivangarzab.webview.util.WebViewNavigator
+import com.ivangarzab.webview.data.WebViewState
+import com.ivangarzab.webview.util.rememberWebViewNavigator
 
 
 /**
- * A wrapper around the Android View WebView to provide a basic WebView composable.
+ * A wrapper around the Android View [WebView] to provide a basic WebView composable.
  *
  * If you require more customisation you are most likely better rolling your own and using this
  * wrapper as an example.
@@ -40,10 +56,10 @@ import com.ivangarzab.webview.rememberWebViewNavigator
  * subsequently overwritten after this lambda is called.
  * @param onDispose Called when the WebView is destroyed. Provides a bundle which can be saved
  * if you need to save and restore state in this WebView.
- * @param client Provides access to WebViewClient via subclassing
- * @param chromeClient Provides access to WebChromeClient via subclassing
+ * @param client Provides access to [android.webkit.WebViewClient] via subclassing
+ * @param chromeClient Provides access to [android.webkit.WebChromeClient] via subclassing
  * @param factory An optional WebView factory for using a custom subclass of WebView
- * @sample com.google.accompanist.sample.webview.BasicWebViewSample
+ * @sample com.ivangarzab.webview.sample.MainActivity
  */
 @Composable
 fun WebView(
@@ -93,7 +109,7 @@ fun WebView(
 }
 
 /**
- * A wrapper around the Android View WebView to provide a basic WebView composable.
+ * A wrapper around the Android View [WebView] to provide a basic WebView composable.
  *
  * If you require more customisation you are most likely better rolling your own and using this
  * wrapper as an example.
@@ -113,8 +129,8 @@ fun WebView(
  * subsequently overwritten after this lambda is called.
  * @param onDispose Called when the WebView is destroyed. Provides a bundle which can be saved
  * if you need to save and restore state in this WebView.
- * @param client Provides access to WebViewClient via subclassing
- * @param chromeClient Provides access to WebChromeClient via subclassing
+ * @param client Provides access to [android.webkit.WebViewClient] via subclassing
+ * @param chromeClient Provides access to [android.webkit.WebChromeClient] via subclassing
  * @param factory An optional WebView factory for using a custom subclass of WebView
  */
 @Composable
