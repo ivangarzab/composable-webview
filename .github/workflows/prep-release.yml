@@ -17,6 +17,11 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Authenticate email
+        run: git config user.email "ivangb6@gmail.com"
+      - name: Authenticate name
+        run: git config user.name "Ivan Garza Bermea"
+
       - name: Get the release version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
