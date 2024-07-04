@@ -2,8 +2,7 @@ name: Prepare Release
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   workflow_dispatch:
     inputs:
       dry_run:
