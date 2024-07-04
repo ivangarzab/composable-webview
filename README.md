@@ -113,7 +113,7 @@ See an improvement that you'd like to see in this library?  Or an impeding bug t
 
 Feel free to drop a *Bug Report* 🐛 or a *Feature Request* 📈 ticket for consideration!
 
-Wanna get something you yourself? 🔥
+Wanna get something done yourself? 🔥
 
 Make sure to _fork_ the library, and submit a *Pull Request* with the pre-defined guidelines!
 
