@@ -7,12 +7,9 @@ on:
     inputs:
       dry_run:
         description: 'Dry Run: Only log actions, do not push or create GitHub Release.'
-        required: false
-        default: "false"
-        type: choice
-        options:
-          - "true"
-          - "false"
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   github:
@@ -48,14 +45,14 @@ jobs:
         run: git tag -a ${{ steps.get_version.outputs.VERSION }} -m "Tagged release ${{ steps.get_version.outputs.VERSION }} on ${{ steps.get_date.outputs.DATE }}"
 
       - name: Push new tag to origin
-        if: ${{ !input.dry_run }}
+        if: ${{ !inputs.dry_run }}
         run: git push origin ${{ steps.get_version.outputs.VERSION }}
 
       - run: echo "Creating new GitHub Release for version ${{ steps.get_version.outputs.VERSION }}"
-        if: ${{ !input.dry_run }}
+        if: ${{ !inputs.dry_run }}
 
       - name: Create new GitHub Release
-        if: ${{ !input.dry_run }}
+        if: ${{ !inputs.dry_run }}
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,7 +72,7 @@ jobs:
       - name: Welcome message
         run: echo "Triggering jitpack master-SNAPSHOT for further use"
       - name: Request master-SNAPSHOT from JitPack
-        if: ${{ !input.dry_run }}
+        if: ${{ !inputs.dry_run }}
         run: |
           # timeout in 30 seconds to avoid waiting for build
           curl -s -m 30 https://jitpack.io/com/ivangarzab/composable-webview/master-SNAPSHOT/ || true
