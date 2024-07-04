@@ -111,7 +111,7 @@ complete example on how to use this library.
 ## Let's Work Together! 
 See an improvement that you'd like to see in this library?  Or an impeding bug that needs to be squashed?
 
-Feel free to drop a *Bug Report* 🐛 or a *Feature Request* 📈 ticket for consideration!
+Feel free to drop a [*Bug Report*](https://github.com/ivangarzab/composable-webview/issues/new?assignees=ivangarzab&labels=bug&projects=&template=bug-report.md&title=) 🐛 or a [*Feature Request*](https://github.com/ivangarzab/composable-webview/issues/new?assignees=ivangarzab&labels=request&projects=&template=feature-request.md&title=) 📈 ticket for consideration!
 
 Wanna get something done yourself? 🔥
 
