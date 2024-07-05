@@ -2,31 +2,37 @@ name: Prepare Release
 
 on:
   push:
-    branches: [master]
+    tags: ["*"]
   workflow_dispatch:
     inputs:
       dry_run:
         description: 'Dry Run: Only log actions, do not push or create GitHub Release.'
         required: true
         type: boolean
-        default: false
+        default: true
 
 jobs:
-  github:
+  github-release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      VERSION: ${{ github.ref_name }}
+      DATE: $(date +"%Y-%m-%d")
     steps:
+      - run: echo "🎫 A new tag=${{ github.ref_name }} has been created!"
+
       - name: Get the release version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+        run: echo "Running prep-release for version ${{ env.VERSION }}
+#        run: echo ::set-output name=VERSION::${{ github.ref_name }}
 
       - name: Get the current date
-        id: get_date
-        run: echo $(date +"%Y-%m-%d") | { var=$(cat); echo ::set-output name=VERSION::"${var}"; }
+        run: Today's date ${{ env.DATE }}
+#        id: get_date
+#        run: echo $(date +"%Y-%m-%d") | { var=$(cat); echo ::set-output name=VERSION::"${var}"; }
 
       - name: Welcome message
-        run: echo "Preparing a new release for version ${{ steps.get_version.outputs.VERSION }}"
+        run: echo "Preparing a new release for version ${{ env.VERSION }}"
 
       - uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned"
@@ -50,13 +56,13 @@ jobs:
         run: chmod +x gradlew
 
       - name: Create new tag
-        run: git tag -a ${{ steps.get_version.outputs.VERSION }} -m "Tagged release ${{ steps.get_version.outputs.VERSION }} on ${{ steps.get_date.outputs.DATE }}"
+        run: git tag -a ${{ env.VERSION }} -m "Tagged release ${{ steps.get_version.outputs.VERSION }} on ${{ env.DATE }}"
 
       - name: Push new tag to origin
         if: ${{ !inputs.dry_run }}
-        run: git push origin ${{ steps.get_version.outputs.VERSION }}
+        run: git push origin ${{ env.VERSION }}
 
-      - run: echo "Creating new GitHub Release for version ${{ steps.get_version.outputs.VERSION }}"
+      - run: echo "Creating new GitHub Release for version ${{ env.VERSION }}"
         if: ${{ !inputs.dry_run }}
 
       - name: Create new GitHub Release
@@ -65,8 +71,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          release_name: v${{ steps.get_version.outputs.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          release_name: v${{ env.VERSION }}
           body: |
             Changes in this Release
             - First Change
@@ -76,6 +82,7 @@ jobs:
 
   jitpack:
     runs-on: ubuntu-latest
+    needs: github-release
     steps:
       - name: Welcome message
         run: echo "Triggering jitpack master-SNAPSHOT for further use"
