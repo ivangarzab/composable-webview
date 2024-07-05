@@ -1,5 +1,5 @@
 ![badge-android](http://img.shields.io/badge/platform-android-6EDB8D.svg?style=flat)
-[![badge-release](https://jitpack.io/v/ivangarzab/composable-webview.svg)](https://jitpack.io/#ivangarzab/composable-webview)
+[![badge-release](https://jitpack.io/v/com.ivangarzab/composable-webview.svg)](https://jitpack.io/#ivangarzab/composable-webview)
 
 ![banner-image](./assets/banner.png)
 
