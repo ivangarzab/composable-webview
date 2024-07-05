@@ -27,7 +27,7 @@ jobs:
 #        run: echo ::set-output name=VERSION::${{ github.ref_name }}
 
       - name: Get the current date
-        run: Today's date ${{ env.DATE }}
+        run: echo "Today's date ${{ env.DATE }}"
 #        id: get_date
 #        run: echo $(date +"%Y-%m-%d") | { var=$(cat); echo ::set-output name=VERSION::"${var}"; }
 
