@@ -18,19 +18,18 @@ jobs:
       contents: write
     env:
       VERSION: ${{ github.ref_name }}
-      DATE: $(date +"%Y-%m-%d")
     steps:
-      - run: echo "🎫 A new tag=${{ github.ref_name }} has been created!"
+      - run: echo "🎫 A new tag=${{ env.VERSION }} has been created!"
 
       - name: Get the release version
         run: echo "Running prep-release for version ${{ env.VERSION }}"
 #        run: echo ::set-output name=VERSION::${{ github.ref_name }}
 
       - name: Get the current date
-#        run: echo "Today's date ${{ env.DATE }}"
         id: get_date
-#        run: echo $(date +"%Y-%m-%d") | { var=$(cat); echo ::set-output name=VERSION::"${var}"; }
         run: echo "::set-output name=DATE::$(date +'%Y-%m-%d')"
+#        run: echo $(date +"%Y-%m-%d") | { var=$(cat); echo ::set-output name=VERSION::"${var}"; }
+      - run: echo "Today's date ${{ steps.get_date.outputs.DATE }}
 
       - name: Welcome message
         run: echo "Preparing a new release for version ${{ env.VERSION }} on ${{ steps.get_date.outputs.DATE }}
