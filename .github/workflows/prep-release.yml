@@ -32,7 +32,7 @@ jobs:
       - run: echo "Today's date ${{ steps.get_date.outputs.DATE }}"
 
       - name: Welcome message
-        run: echo "Preparing a new release for version ${{ env.VERSION }} on ${{ steps.get_date.outputs.DATE }}
+        run: echo "Preparing a new release for version ${{ env.VERSION }} on ${{ steps.get_date.outputs.DATE }}"
 
       - uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned"
