@@ -18,7 +18,7 @@ git checkout -b release/"$VERSION_NAME"
 # Step 2: Update library version number
 echo "Updating library version to $VERSION_NAME"
 chmod +x tools/update-version.sh
-./tools/update-version-app.sh "$VERSION_NAME"
+./tools/update-version.sh "$VERSION_NAME"
 git commit -am "Update library version for release v$VERSION_NAME"
 
 # Step 3:
