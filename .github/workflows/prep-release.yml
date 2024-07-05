@@ -9,7 +9,7 @@ on:
         description: 'Dry Run: Only log actions, do not push or create GitHub Release.'
         required: true
         type: boolean
-        default: true
+        default: false
 
 jobs:
   github-release:
