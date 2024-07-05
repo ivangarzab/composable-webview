@@ -23,7 +23,7 @@ jobs:
       - run: echo "🎫 A new tag=${{ github.ref_name }} has been created!"
 
       - name: Get the release version
-        run: echo "Running prep-release for version ${{ env.VERSION }}
+        run: echo "Running prep-release for version ${{ env.VERSION }}"
 #        run: echo ::set-output name=VERSION::${{ github.ref_name }}
 
       - name: Get the current date
