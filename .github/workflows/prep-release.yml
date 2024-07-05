@@ -71,4 +71,4 @@ jobs:
         if: ${{ !inputs.dry_run }}
         run: |
           # timeout in 30 seconds to avoid waiting for build
-          curl -s -m 30 https://jitpack.io/com/ivangarzab/composable-webview/master-SNAPSHOT/ || true
+          curl -s -m 30 https://jitpack.io/com/ivangarzab/composable-webview/${{ env.VERSION }}/ || true
