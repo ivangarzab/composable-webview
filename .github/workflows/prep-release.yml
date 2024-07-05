@@ -18,7 +18,7 @@ jobs:
       contents: write
     env:
       VERSION: ${{ github.ref_name }}
-      DATE: $(date +"%Y-%m-%d")
+      DATE: date +"%Y-%m-%d"
     steps:
       - run: echo "🎫 A new tag=${{ github.ref_name }} has been created!"
 
