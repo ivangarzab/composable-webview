@@ -56,7 +56,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Create new tag
-        run: git tag -a ${{ env.VERSION }} -m "Tagged release ${{ steps.get_version.outputs.VERSION }} on ${{ env.DATE }}"
+        run: git tag -a ${{ env.VERSION }} -m "Tagged release ${{ env.VERSION }} on ${{ env.DATE }}"
 
       - name: Push new tag to origin
         if: ${{ !inputs.dry_run }}
