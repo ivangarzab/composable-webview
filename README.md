@@ -102,8 +102,8 @@ Make sure to check out the sample app in [`MainActivity`](https://github.com/iva
 complete example on how to use this library.
 
 ## Upcoming Features
-- [ ] Pull to refresh ♻️
-- [ ] Website loading spinner ↻
+- [x] Pull to refresh ♻️
+- [x] Website loading spinner ↻
 - [ ] Distribution through the Maven package 🚀
 
 ------------------------------------
