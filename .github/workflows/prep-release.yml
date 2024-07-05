@@ -19,29 +19,17 @@ jobs:
     env:
       VERSION: ${{ github.ref_name }}
     steps:
-      - run: echo "🎫 A new tag=${{ env.VERSION }} has been created!"
+      - run: echo "🎫 A new tag=${{ env.VERSION }} has been detected!"
+      - run: echo "Creating new GitHub release and triggering Jitpack build"
 
       - name: Get the release version
         run: echo "Running prep-release for version ${{ env.VERSION }}"
-#        run: echo ::set-output name=VERSION::${{ github.ref_name }}
-
-      - name: Get the current date
-        id: get_date
-        run: echo "::set-output name=DATE::$(date +'%Y-%m-%d')"
-#        run: echo $(date +"%Y-%m-%d") | { var=$(cat); echo ::set-output name=VERSION::"${var}"; }
-      - run: echo "Today's date ${{ steps.get_date.outputs.DATE }}"
 
       - name: Welcome message
-        run: echo "Preparing a new release for version ${{ env.VERSION }} on ${{ steps.get_date.outputs.DATE }}"
+        run: echo "Preparing a new release for version ${{ env.VERSION }}"
 
       - uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned"
-
-      - run: echo "Authenticating with GitHub"
-      - name: Authenticate email
-        run: git config user.email "ivangb6@gmail.com"
-      - name: Authenticate name
-        run: git config user.name "Ivan Garza Bermea"
 
       - run: echo "Setting up JDK"
       - name: set up JDK 17
@@ -51,16 +39,9 @@ jobs:
           distribution: 'corretto'
           cache: gradle
 
-      - run: echo "🖥️ The workflow is now ready to test your code"
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
-      - name: Create new tag
-        run: git tag -a ${{ env.VERSION }} -m "Tagged release ${{ env.VERSION }} on ${{ env.DATE }}"
-
-      - name: Push new tag to origin
-        if: ${{ !inputs.dry_run }}
-        run: git push origin ${{ env.VERSION }}
+      - run: echo "🖥️ The workflow is now ready to test your code"
 
       - run: echo "Creating new GitHub Release for version ${{ env.VERSION }}"
         if: ${{ !inputs.dry_run }}
