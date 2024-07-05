@@ -64,7 +64,7 @@ publishing {
         register<MavenPublication>("production") {
             groupId = "com.github.ivangarzab"
             artifactId = "composable-webview"
-            version = "0.5"
+            version = "0.6"
 
             afterEvaluate {
                 from(components["production"])
