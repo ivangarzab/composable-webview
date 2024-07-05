@@ -29,7 +29,7 @@ jobs:
         id: get_date
         run: echo "::set-output name=DATE::$(date +'%Y-%m-%d')"
 #        run: echo $(date +"%Y-%m-%d") | { var=$(cat); echo ::set-output name=VERSION::"${var}"; }
-      - run: echo "Today's date ${{ steps.get_date.outputs.DATE }}
+      - run: echo "Today's date ${{ steps.get_date.outputs.DATE }}"
 
       - name: Welcome message
         run: echo "Preparing a new release for version ${{ env.VERSION }} on ${{ steps.get_date.outputs.DATE }}
