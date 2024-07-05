@@ -59,7 +59,6 @@ import com.ivangarzab.webview.util.rememberWebViewNavigator
  * @param client Provides access to [android.webkit.WebViewClient] via subclassing
  * @param chromeClient Provides access to [android.webkit.WebChromeClient] via subclassing
  * @param factory An optional WebView factory for using a custom subclass of WebView
- * @sample com.ivangarzab.webview.sample.MainActivity
  */
 @Composable
 fun WebView(
