@@ -12,7 +12,7 @@ as well as making it public so that other people may leverage it too.
 For more information, please check out their [official documentation](https://google.github.io/accompanist/web/).
 
 ### As Seen On
-_Link to original article coming soon!_
+**Medium**: *[An Inquiry Into the Android WebView for Jetpack Compose](https://medium.com/p/35cb52e29622)*
 
 ## Setup
 Import this library as a Gradle dependency in two simple steps:
